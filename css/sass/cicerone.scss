@@ -1,0 +1,83 @@
+/*  Variables   */
+$animation-duration: 1s;
+
+$curtain-color: rgba(0,0,0,0.7);
+
+$dialog-bg: #fff;
+$dialog-color: #000;
+$dialog-font-size: 14px;
+$dialog-font-family: inherit;
+$dialog-font-weight: normal;
+$dialog-text-align: left;
+$dialog-max-width: 450px;
+$dialog-min-width: 150px;
+$dialog-padding: 10px;
+$dialog-margin: 10px;
+$dialog-offset-top: 0px;
+
+$dialog-triangle-width: 7px;
+$dialog-triangle-bg: $dialog-bg;
+
+
+
+/*  Cicerone scaffolding styles */
+.cicerone {
+
+    &.curtain {
+        opacity: 0;
+        background-color: $curtain-color;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition-duration: $animation-duration;
+
+        &.open {
+            opacity: 1;
+        }
+    }
+
+    &.dialog {
+        position: absolute;
+        top: 100%;
+        box-sizing: border-box;
+        background-color: $dialog-bg;
+        color: $dialog-color;
+        font-size: $dialog-font-size;
+        font-family: $dialog-font-family;
+        font-weight: $dialog-font-weight;
+        text-align: $dialog-text-align;
+        max-width: $dialog-max-width;
+        min-width: $dialog-min-width;
+        padding: $dialog-padding;
+        margin: $dialog-margin;
+        margin-top: $dialog-offset-top + $dialog-triangle-width;
+
+        &:after {
+            content: "";
+            border-style: solid;
+            border-width: 0 $dialog-triangle-width $dialog-triangle-width;
+            border-color: $dialog-triangle-bg transparent;
+            display: block;
+            position: absolute;
+            top: -$dialog-triangle-width;
+        }
+
+        &.placement-left {
+            left: -$dialog-margin;
+
+            &:after {
+                left: $dialog-margin;
+            }
+        }
+
+        &.placement-right {
+            right: -$dialog-margin;
+
+            &:after {
+                right: $dialog-margin;
+            }
+        }
+    }
+}
