@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://blue-hoopoe.com/cicerone-library -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./files/logo_256.png">
+        <meta name="robots" content="index,follow">
+        <meta property="og:image" content="./files/logo_256.png">
+        <meta property="og:type" content="website">
+
+            <title>cicerone-library | Blue-Hoopoe</title>
+    <meta name="description" content="Flexible and lightweight front-end library which allows to easily present new features on website. Contains simple css/sass/less scaffolding and vulnerable to changes js object, which handles the whole presentation.">
+        
+            <meta property="og:title" content="cicerone-library | Blue-Hoopoe">
+    <meta property="og:description" content="Flexible and lightweight front-end library which allows to easily present new features on website. Contains simple css/sass/less scaffolding and vulnerable to changes js object, which handles the whole presentation.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="./files/foundation.min.css">
+    <script src="./files/jquery.js"></script>
+    <script src="./files/foundation.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./files/style.css">
+        
+
+        
+        <link rel="stylesheet" href="./files/cicerone.min.css">
+    
+    <style>
+        #pres-1-1.cicerone.presentation > .fancy-button,
+        #pres-1-2.cicerone.presentation > .fancy-button{
+            color: #fff;
+            background-color: #5ba0e7;
+        }
+        .cicerone-dialog-body{
+            font-size: 12px;
+        }
+        .cicerone-dialog-nav{
+            font-size: 10px;
+            margin-top: 10px;
+        }
+        .cicerone-dialog-nav > span{
+            cursor: pointer;
+            padding: 2px 4px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #5cb85c;
+        }
+        .cicerone-dialog-nav > span[cicerone-back]{
+            background-color: #5ba0e7;
+        }
+    </style>
+    
+    <script src="./files/cicerone.min.js"></script>
+    
+    <script id="tmp-pres-1" type="text/template">
+        <div class="cicerone-dialog-body">{{msg}}</div>
+        <div class="cicerone-dialog-nav">
+            <span cicerone-back class="float-left" style="display: {{back}}">Back</span>
+            <span cicerone-next class="float-right" style="display: {{next}}">Next</span>
+            <span cicerone-exit class="float-right" style="display: {{end}}">End</span>
+        </div>
+    </script>
+    
+    <script>
+        var pres1 = new Cicerone([
+            {
+                "selector": "#pres-1-1",
+                "template": "#tmp-pres-1",
+                "variables":{
+                    "msg": "Welcome to the demo presentation.",
+                    "back": "none",
+                    "next": "initial",
+                    "end": "none"
+                }
+            },
+            {
+                "selector": "#pres-1-1",
+                "template": "#tmp-pres-1",
+                "variables":{
+                    "msg": "By clicking on that button you can download ciceron-library.",
+                    "back": "initial",
+                    "next": "initial",
+                    "end": "none"
+                }
+            },
+            {
+                "selector": "#pres-1-2",
+                "template": "#tmp-pres-1",
+                "variables":{
+                    "msg": "You can also visit github repository!",
+                    "back": "initial",
+                    "next": "initial",
+                    "end": "none"
+                }
+            },
+            {
+                "selector": "#pres-1-2",
+                "template": "#tmp-pres-1",
+                "variables":{
+                    "msg": "You will find there more extended documentation, if needed.",
+                    "back": "initial",
+                    "next": "none",
+                    "end": "initial"
+                }
+            }
+        ]);
+        window.addEventListener("load", function(){
+            $("#pres-1-trig").click(function(){
+                pres1.start();
+            })
+        });
+    </script>
+        
+        
+        <link rel="stylesheet" href="./files/style.css">
+        
+    <meta class="foundation-mq"></head>
+    <body>
+
+                
+                <header class="gradient spacer-bottom">
+                <div class="row align-center text-center">
+        <h1 draggable="false" class="columns no-border small-12 logotype spacer-bottom">
+            <img draggable="false" src="./files/logo-transparent.svg">
+            <span>cicerone-library</span>
+        </h1>
+        <h2 class="h5 no-border columns small-12  spacer-bottom">
+            Present new features in a pellucid way.
+        </h2>
+        <div class="columns small-12">
+            <span id="pres-1-1">
+                <a href="https://github.com/Blue-Hoopoe/cicerone-library/archive/master.zip" class="fancy-button">
+                    <i class="material-icons"></i>
+                    Download
+                </a>
+            </span>
+            <span id="pres-1-2">
+                <a id="pres-1-2" href="https://github.com/Blue-Hoopoe/cicerone-library" class="fancy-button">
+                    <i class="material-icons"></i>
+                    Github
+                </a>
+            </span>
+        </div>
+    </div>
+        </header>
+        
+
+        <main>
+                            
+        <section class="medium-text-justify page-section" id="about">
+        <header class="row">
+            <h3 class="columns h1 small-12">About</h3>
+        </header>
+        <div class="row ">
+            <div class="columns small-12">
+                <p>The word "cicerone" means more or less a "pilot". This library provides flexible tools, which allow to simply guide users on your websites by displaying personalized dialogs.  Personally, I use it to present new features of my applications, but I truly believe, that it has a little bit more uses. </p>
+                <p>Let's asume, that your website has a new feature in the form of social share button. User can miss this important element of your page, unless you directly point it with your finger. Cicerone library creates half-transparent curtain on your site and step-by-step shows selected elements with your commentary in the form of previously created template.</p>
+                <p><a id="pres-1-trig" style="margin-left: 0" class="fancy-button" href="javascript:void(0)">
+                        <i class="material-icons"></i>
+                        Show me demo
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+        <section class="medium-text-justify page-section" id="initialize-presentation">
+        <header class="row">
+            <h3 class="columns h1 small-12">Initialize presentation</h3>
+        </header>
+        <div class="row ">
+            <div class="columns small-12 medium-6">
+                <p>After including css and js files, create new instance of Cicerone object with array of objects that defines every step of your presentation.</p>
+                <p>This one contains only one: it will point the <span class="attr">#first-element-to-show</span> element and will use template saved in <span class="attr">#dialog-template"</span> &lt;<span class="tag">script</span>&gt; element.</p>
+                <p>After creating an object, the presentation is invoked by a <span class="js">start()</span> method.</p>
+            </div>
+            <div class="columns medium-6">
+                <div class="os-window spacer-top">
+                    <div class="header gradient">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="content">
+                        <pre><code>&lt;<span class="tag">script</span>&gt;
+    <span class="js">var myPresentation = new Cicerone([
+        <span class="json">{
+            selector: "<span class="attr">#first-element-to-show</span>",
+            template: "<span class="attr">#dialog-template</span>"
+        }</span>
+    ]);
+    myPresentation.start();</span>
+&lt;/<span class="tag">script</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <section class="medium-text-justify page-section" id="templates">
+        <header class="row">
+            <h3 class="columns h1 small-12">Templates</h3>
+        </header>
+        <div class="row ">
+            <div class="columns medium-6">
+                <div class="os-window spacer-top">
+                    <div class="header gradient">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="content">
+                        <pre><code>&lt;<span class="tag">script</span> <span class="attr">type="text/template"</span>&gt;
+    &lt;<span class="tag">h1</span> <span class="attr">cicerone-next</span>&gt; Hello <span class="accent">{{ library }}</span>&lt;/<span class="tag">h1</span>&gt;
+&lt;/<span class="tag">script</span>&gt;
+
+<span class="tag">script</span>&gt;
+    <span class="js">var myPresentation = new Cicerone([
+        <span class="json">{
+            selector: "#first-element-to-show",
+            template: "#dialog-template",
+            variables: {
+                <span class="accent">"library": "Cicerone"</span>
+            }
+        }</span>
+    ]);</span>
+&lt;/<span class="tag">script</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="columns small-12 medium-6">
+                <p>Templates must be stored in <span class="unbreakable">&lt;<span class="tag">script</span> <span class="attr">type="text/template"</span>&gt;</span> tag. It should contains ordinary html content, that is latter added to dialog body.</p>
+                <p>What's important, Cicerone library handles simple <span class="accent">variable inserting</span>. The syntax can be known among others from Twig, but it is limited to only simple objects like strings or numerics.</p>
+                <p>There is also possibility to add navigation listeners to templates, which will be used to manipulate the presentation (e.g. "next" button). To add listener, include one of the tree attributes to the chosen element:</p>
+                <ul>
+                    <li><span class="attr">cicerone-next</span> - shows next dialog,</li>
+                    <li><span class="attr">cicerone-back</span> - shows previous dialog,</li>
+                    <li><span class="attr">cicerone-end</span> - ends the presentation,</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+        <section class="medium-text-justify page-section" id="ciceron-object">
+        <header class="row">
+            <h3 class="columns h1 small-12">Ciceron object</h3>
+        </header>
+        <div class="row ">
+            <div class="columns small-12">
+                <p>Cicerone instance contains three public methods:</p>
+                <ul>
+                    <li>
+                        <span class="js">start(<span class="accent">from</span> = 1) </span>-
+                        initialize the whole presentation. The <span class="accent">from</span> parameter defines from which step the presentation should be open (by default it is the first one).
+                    </li>
+                    <li>
+                        <span class="js">makeStep(<span class="accent">step</span>) </span>-
+                        makes next or previuos steps in the presentation depending on the step parameter.
+                    </li>
+                    <li>
+                        <span class="js">end() </span>-
+                        finishes the presentation and remove all elements with <span class="attr">cicerone</span> class.
+                    </li>
+                </ul>
+                <p>There is also one public property:</p>
+                <ul>
+                    <li>
+                        <span class="js">steps </span>-
+                        contains all steps in the presentation. Can be used to remove or add new one.
+                    </li>
+                </ul>
+        </div>
+    </div></section>
+    
+        <section class="medium-text-justify page-section" id="step-objects">
+        <header class="row">
+            <h3 class="columns h1 small-12">Step objects</h3>
+        </header>
+        <div class="row ">
+            <div class="columns small-12 medium-6">
+                <p>As mentioned, the Cicerone constructor takes array of steps objects. Step objects must contains properties:</p>
+                <ul>
+                    <li>
+                        <span class="json">selector </span>-
+                        css selector to the presented element,
+                    </li>
+                    <li>
+                        <span class="json">template </span>-
+                        css selector to the <span class="unbreakable">&lt;<span class="tag">script</span> <span class="attr">type="text/template"</span>&gt;</span> element, which holds the inner-dialog template.
+                    </li>
+                </ul>
+                <p>Additionaly, it can also have:</p>
+                <ul>
+                    <li>
+                        <span class="json">css </span>-
+                        style string that will be add to presented element during it's step.
+                    </li>
+                    <li>
+                        <span class="json">placement </span>-
+                        additional class that will be added to dialog. By deafult, library handles two values: <span class="attr">left</span> (default) and <span class="attr">right</span>,
+                    </li>
+                    <li>
+                        <span class="json">variables </span>-
+                        object of simple objects variables that will be inserted to the tamplate. It is handled like a associative array with <span class="accent">'variable-name'=&gt;'value'</span> structure.
+                    </li>
+                </ul>
+            </div>
+            <div class="columns medium-6">
+                <div class="os-window spacer-top">
+                    <div class="header gradient">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="content">
+                        <pre><code>&lt;<span class="tag">script</span>&gt;
+    <span class="js">var myPresentation = new Cicerone([
+        <span class="json">{
+            selector: "<span class="attr">#first-element-to-show</span>",
+            template: "<span class="attr">#dialog-template</span>"
+        },
+        {
+            selector: "<span class="attr">#second-element-to-show</span>",
+            template: "<span class="attr">#dialog-template"</span>",
+            css: "<span class="attr">background: yellow; color: red;</span>"
+        },
+        {
+            selector: "<span class="attr">#third-element-to-show</span>",
+            template: "<span class="attr">#dialog-template</span>"
+            variables: {
+                <span class="json">"header"</span>: "<span class="attr">Third element</span>",
+                <span class="json">"content"</span>: "<span class="attr">3 dialog in the presentation.</span>"
+            },
+            placement: "<span class="attr">right</span>"
+        }</span>
+    ]);</span>
+&lt;/<span class="tag">script</span>&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                    </main>
+
+
+
+                            <footer class="gradient">
+                <div class="row align-middle">
+                    <div class="columns medium-6 small-12">
+                        <img draggable="false" src="./files/logo-transparent.svg" style="height: 3rem;">
+                        <p>Blue Hoopoe</p>
+                    </div>
+                    <div class="columns medium-6 small-12">
+                        <p>Frontend built using:<br>
+                            <a href="https://foundation.zurb.com/">Foundation</a>, 
+                            <a href="https://material.io/icons/">Material Icons</a> and 
+                            <a href="https://jquery.com/">JQuery</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+         
+        
+
+        <script>$(document).foundation();</script>
+                 
+        
+    
+</body><autoscroll></autoscroll></html>
