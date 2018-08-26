@@ -1,8 +1,6 @@
-[homepage]: http://blue-hoopoe.com/cicerone-library
+# cicerone-library
 
-# [cicerone-library][homepage]
-
-The word "cicerone" means more or less a "pilot". This library provides flexible tools, which allow to simply guide users on your websites by displaying personalized dialogs. Personally, I use it to present new features of my applications, but I truly believe, that it has a little bit more uses. If you want to know how it works in practise, please [visit official website][homepage].
+The word "cicerone" means more or less a "pilot". This library provides flexible tools, which allow to simply guide users on your websites by displaying personalized dialogs. Personally, I use it to present new features of my applications, but I truly believe, that it has a little bit more uses. If you want to know how it works in practise, please visit ```getting started``` folder.
 
 ## How presentation looks like
 Let's asume, that your website has a new feature in the form of social share button. User can miss this important element of your page, unless you directly point it with your finger. Cicerone library creates half-transparent curtain on your site and step-by-step shows selected elements with your commentary in the form of previously created template.
